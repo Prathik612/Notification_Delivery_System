@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Home - NewsFlow</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+    <header>
+        <img th:src="@{/images/logo.png}" alt="NewsFlow Logo" />
+        <div class="user-info">
+            <p>Welcome, <span th:text="${#authentication.name}">User</span></p>
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+        <div sec:authorize="hasRole('ADMIN')">
+            <form th:action="@{/admin/topics/new}" method="get" style="display: inline;">
+                <button type="submit">Add New Topic</button>
+            </form>
+            <form th:action="@{/admin/newsletters}" method="get" style="display: inline;">
+                <button type="submit">Send Newsletter</button>
+            </form>
+            <form th:action="@{http://localhost:3000/}" method="get" style="display: inline;">
+                <button type="submit">Analytics</button>
+            </form>
+        </div>
+    </header>
+
+    <div class="content">
+        <h2>Available Topics</h2>
+        <ul>
+            <li th:each="topic : ${topics}">
+                <div class="topic-container">
+                    <div class="topic-header">
+                        <h3 th:text="${topic.name}">Topic Name</h3>
+                        <div class="topic-actions" sec:authorize="hasRole('ADMIN')">
+                            <form th:action="@{'/admin/topics/delete/' + ${topic.id}}" method="post">
+                                <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this topic?')">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <p th:text="${topic.description}">Topic Description</p>
+                    <div class="subscription-actions">
+                        <form th:action="@{'/subscribe/' + ${topic.id}}" method="post" th:if="${!subscriptionTopicIds.contains(topic.id)}">
+                            <button type="submit" class="subButton">Subscribe</button>
+                        </form>
+                        <form th:action="@{'/unsubscribe/' + ${topic.id}}" method="post" th:if="${subscriptionTopicIds.contains(topic.id)}">
+                            <button type="submit" class="unsubButton">Unsubscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        <p>&copy; 2024 NewsFlow. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

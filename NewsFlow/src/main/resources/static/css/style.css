@@ -1,0 +1,235 @@
+/* Reset browser defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    display: flex;
+    background-color: #162533;
+    color: white;
+    padding: 20px;
+    position: relative;
+    align-items: center;
+}
+
+header img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+.user-info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.user-info p {
+    margin-bottom: 5px;
+}
+
+.user-info a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.user-info a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    margin-top: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.form-container {
+    background-color: white;
+    width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #162533;
+}
+
+.form-container form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.form-container form input,
+.form-container form textarea,
+.form-container form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 30px;
+    background-color: #162533;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-container form button:hover {
+    background-color: #162533;
+}
+
+.form-container p {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form-container p a {
+    color: #162533;
+    text-decoration: none;
+}
+
+.form-container p a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #162533;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.content {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.content h2 {
+    margin-bottom: 30px;
+    color: #162533;
+    text-align: center;
+}
+
+.content ul {
+    list-style-type: none;
+}
+
+.content li {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.content p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.content form {
+    display: inline-block;
+}
+
+.content form button:hover {
+    background-color: #697179;
+}
+
+button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0); 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    border-color: black;
+}
+.unsubButton{
+    background-color: #697179;
+    color: rgb(0, 0, 0); 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    border-color: black;
+}
+
+button:hover {
+    background-color: #697179; 
+}
+
+.topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    .form-container,
+    .content {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    .user-info {
+        position: static;
+        margin-top: 10px;
+    }
+}

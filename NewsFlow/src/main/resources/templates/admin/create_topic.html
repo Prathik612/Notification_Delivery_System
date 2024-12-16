@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Topic - NewsFlow</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+    <header>
+        <img th:src="@{/images/logo.png}" alt="NewsFlow Logo" />
+        <div class="back-button">
+            <a th:href="@{/home}">
+                <button type="button">&lt Back</button>
+            </a>
+        </div>
+        <div class="user-info">
+            <p>Welcome, <span th:text="${#authentication.name}">Admin</span></p>
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>Create New Topic</h2>
+        <form th:action="@{/admin/topics}" th:object="${topic}" method="post">
+            <label for="name">Topic Name</label>
+            <input type="text" th:field="*{name}" placeholder="Enter topic name" required />
+
+            <label for="description">Description</label>
+            <textarea th:field="*{description}" placeholder="Enter topic description" required></textarea>
+
+            <button type="submit">Create Topic</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NewsFlow. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Send Newsletter - NewsFlow</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+    <header>
+        <img th:src="@{/images/logo.png}" alt="NewsFlow Logo" />
+        <div class="back-button">
+            <a th:href="@{/home}">
+                <button type="button">&lt Back</button>
+            </a>
+        </div>
+        <div class="user-info">
+            <p>Welcome, <span th:text="${#authentication.name}">Admin</span></p>
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>Send Newsletter</h2>
+        <form th:action="@{/admin/newsletters}" method="post">
+            <label for="topicId">Select Topic</label>
+            <select name="topicId" required>
+                <option th:each="topic : ${topics}" th:value="${topic.id}" th:text="${topic.name}"></option>
+            </select>
+
+            <label for="content">Content</label>
+            <textarea name="content" maxlength=256 placeholder="Enter newsletter content" required></textarea>
+
+            <button type="submit">Send Newsletter</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NewsFlow. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
